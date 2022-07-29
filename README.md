@@ -4,13 +4,15 @@
 
 **Stopwatch App**
 
+A basic stopwatch app with basic functionality, this project were made for the learning reasons
+
 
 Time spent: ** ** hours spent in total
 
 ## Functionality
 
-* 
-* 
+* Hour/minutes/second meter
+* Basic buttons for Start/Pause/Reset 
 
 The following **required** functionality is completed:
 
