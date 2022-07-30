@@ -3,22 +3,35 @@ package com.example.stopwatch
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.PersistableBundle
 import android.view.View
 import android.widget.TextView
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var tvTimer: TextView
+
     private var seconds = 0
     private var isRunning = false
-    private lateinit var tvTimer: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         tvTimer = findViewById(R.id.tvTimer)
+
+        if (savedInstanceState != null) {
+            seconds = savedInstanceState.getInt("seconds")
+            isRunning = savedInstanceState.getBoolean("isRunning")
+            runTimer()
+        }
         runTimer()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        outState.putInt("seconds", seconds)
+        outState.putBoolean("isRunning", isRunning)
+        super.onSaveInstanceState(outState, outPersistentState)
     }
 
     fun onClickStartTimer(view: View) {
