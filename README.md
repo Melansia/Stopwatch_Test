@@ -24,7 +24,8 @@ The following **required** functionality is completed:
 The following **extensions** are implemented:
 
 * [ ] 
-* [ ] 
+* [ ]
+* [ ]   
 
 ## Video Walk-through
 
