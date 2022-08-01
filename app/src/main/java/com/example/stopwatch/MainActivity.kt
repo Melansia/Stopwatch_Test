@@ -20,19 +20,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         tvTimer = findViewById(R.id.tvTimer)
 
-        if (savedInstanceState != null) {
-            seconds = savedInstanceState.getInt("seconds")
-            isRunning = savedInstanceState.getBoolean("isRunning")
-            runTimer()
-        }
+//        if (savedInstanceState != null) {
+//            seconds = savedInstanceState.getInt("seconds")
+//            isRunning = savedInstanceState.getBoolean("isRunning")
+//            runTimer()
+//        }
         runTimer()
     }
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        outState.putInt("seconds", seconds)
-        outState.putBoolean("isRunning", isRunning)
-        super.onSaveInstanceState(outState, outPersistentState)
-    }
+//    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+//        outState.putInt("seconds", seconds)
+//        outState.putBoolean("isRunning", isRunning)
+//        super.onSaveInstanceState(outState, outPersistentState)
+//    }
 
     fun onClickStartTimer(view: View) {
         isRunning = true
