@@ -1,11 +1,10 @@
 package com.example.stopwatch
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.PersistableBundle
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     private var seconds = 0
     private var isRunning = false
+    private var wasRunning = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,15 +23,27 @@ class MainActivity : AppCompatActivity() {
 //        if (savedInstanceState != null) {
 //            seconds = savedInstanceState.getInt("seconds")
 //            isRunning = savedInstanceState.getBoolean("isRunning")
+//            wasRunning = savedInstanceState.getBoolean("wasRunning")
 //            runTimer()
 //        }
         runTimer()
     }
 
+    override fun onStop() {
+        super.onStop()
+        wasRunning = isRunning
+        isRunning = false
+    }
+
+    override fun onStart() {
+        super.onStart()
+        isRunning = wasRunning
+    }
 //    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+//        super.onSaveInstanceState(outState, outPersistentState)
 //        outState.putInt("seconds", seconds)
 //        outState.putBoolean("isRunning", isRunning)
-//        super.onSaveInstanceState(outState, outPersistentState)
+//        outState.putBoolean("wasRunning", wasRunning)
 //    }
 
     fun onClickStartTimer(view: View) {
