@@ -29,14 +29,14 @@ class MainActivity : AppCompatActivity() {
         runTimer()
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onPause() {
+        super.onPause()
         wasRunning = isRunning
         isRunning = false
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         isRunning = wasRunning
     }
 //    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
